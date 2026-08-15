@@ -1,0 +1,110 @@
+cd c:\mail\MailHog
+
+MailHog.exe
+
+Ctrl + C pour arreter
+
+localhost:8025
+
+c:\mail\MailHog>MailHog.exe
+2025/05/31 20:07:05 Using in-memory storage
+2025/05/31 20:07:05 [SMTP] Binding to address: 0.0.0.0:1025
+[HTTP] Binding to address: 0.0.0.0:8025
+2025/05/31 20:07:05 Serving under http://0.0.0.0:8025/
+Creating API v1 with WebPath:
+Creating API v2 with WebPath:
+[APIv2] GET /api/v2/jim
+[APIv2] GET /api/v2/messages
+[APIv2] GET /api/v2/websocket
+[APIv1] KEEPALIVE /api/v1/events
+[APIv1] KEEPALIVE /api/v1/events
+
+
+
+خطوات تشغيل MailHog مع PHP (على XAMPP/WAMP أو أي localhost):
+1. 🔽 تحميل MailHog
+زر الموقع: https://github.com/mailhog/MailHog/releases
+
+اختر ملف التشغيل حسب نظامك (Windows/Linux/Mac)
+
+2. ▶️ تشغيل MailHog
+افتح Terminal أو Command Prompt، ثم اكتب:
+
+bash
+Copy
+Edit
+./MailHog
+افتراضيًا، MailHog يستخدم:
+
+SMTP على المنفذ 1025
+
+واجهة الويب على http://localhost:8025
+
+3. ⚙️ ضبط PHP لإرسال الرسائل عبر MailHog
+افتح ملف إعدادات PHP:
+
+في XAMPP: php\php.ini
+
+ابحث عن السطر:
+
+ini
+Copy
+Edit
+;sendmail_path =
+واستبدله بـ:
+
+ini
+Copy
+Edit
+sendmail_path = "\"C:\xampp\sendmail\sendmail.exe\" -t"
+أو يمكنك تكوين إعدادات SMTP مباشرة (المهم أن يشير إلى localhost:1025):
+
+ini
+Copy
+Edit
+[mail function]
+SMTP = localhost
+smtp_port = 1025
+sendmail_from = you@example.com
+✔️ تأكد من إزالة علامات ; في البداية.
+
+4. ✉️ مثال كود PHP لإرسال البريد:
+php
+Copy
+Edit
+<?php
+$to = "test@example.com";
+$subject = "Test Mail from Localhost";
+$message = "Hello! This is a test email from localhost using MailHog.";
+$headers = "From: no-reply@yourdomain.com";
+
+if(mail($to, $subject, $message, $headers)) {
+    echo "Email sent successfully.";
+} else {
+    echo "Email sending failed.";
+}
+?>
+5. 🌐 افتح MailHog
+ادخل إلى: http://localhost:8025
+
+سترى كل الرسائل التي تم إرسالها
+
+✅ النتيجة
+لا تحتاج إلى اتصال إنترنت
+
+ترسل الرسائل داخل بيئتك المحلية
+
+تُستخدم فقط لأغراض التجريب والاختبار
+
+
+
+
+$headers = "From: no-reply@example.com\r\n" .
+           "Reply-To: support@example.com\r\n" .
+           "X-Mailer: PHP/" . phpversion();
+
+
+
+phpmailer
+
+
