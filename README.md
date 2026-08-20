@@ -102,19 +102,19 @@ Screenshots of the application are available in the `screenShots/` directory.
 
 ### Home Page
 
-![Home](screenShots/home.png)
+![Home](screenShots/home.jpg)
 
 ### Registration
 
-![sign up](screenShots/sign up.png)
+![sign up](screenShots/sign up.jpg)
 
 ### Dashboard
 
-![Dashboard](screenShots/dashboard.png)
+![Dashboard](screenShots/dashboard.jpg)
 
 ### Add Task
 
-![Task List](screenShots/add task.png)
+![Task List](screenShots/add task.jpg)
 
 
 
