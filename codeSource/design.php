@@ -6,7 +6,6 @@
   <title>Task Manager Card</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* خلفية الصفحة */
 body, html {
   margin: 0;
   padding: 0;
@@ -15,7 +14,6 @@ body, html {
   overflow: hidden;
 }
 
-/* الفيديو الخلفي */
 #bg-video {
   position: fixed;
   right: 0;
@@ -24,10 +22,9 @@ body, html {
   min-height: 100%;
   z-index: -1;
   object-fit: cover;
-  filter: brightness(0.5); /* لتوضيح البطاقة أكثر */
+  filter: brightness(0.5); 
 }
 
-/* حاوية البطاقة */
 .card-container {
   display: flex;
   align-items: center;
@@ -35,7 +32,6 @@ body, html {
   height: 100vh;
 }
 
-/* البطاقة */
 .card {
   background: rgba(255, 255, 255, 0.9);
   padding: 50px;
@@ -49,13 +45,11 @@ body, html {
   height: 250px;
 }
 
-/* التأثير عند المرور */
 .card:hover {
   transform: scale(1.05) translateZ(20px);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
-/* الزر داخل البطاقة */
 .card button {
   margin-top: 20px;
   padding: 12px 24px;
@@ -75,13 +69,11 @@ body, html {
 </head>
 <body>
 
-  <!-- خلفية فيديو -->
   <video autoplay muted loop id="bg-video">
     <source src="background.mp4" type="video/mp4" />
     Your browser does not support HTML5 video.
   </video>
 
-  <!-- البطاقة -->
   <div class="card-container">
     <div class="card">
       <h1>Task Manager</h1>

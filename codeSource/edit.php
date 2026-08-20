@@ -1,10 +1,10 @@
 <?php
 include "connexion.php";
 
-//if (!isset($_SESSION['id_user'])) {
-    //header("Location: login.php");
-    //exit;
-//}
+if (!isset($_SESSION['id_user'])) {
+    header("Location: login.php");
+    exit;
+}
 
 $id_task = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 if ($id_task <= 0) {
